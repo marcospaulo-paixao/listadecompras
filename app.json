@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "listadecompras",
+    "slug": "listadecompras",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "listadecompras"
+}

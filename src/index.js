@@ -1,0 +1,1 @@
+export { ListarProdutoComponent } from "./produtos";
