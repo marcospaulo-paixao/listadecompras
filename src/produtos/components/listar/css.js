@@ -36,7 +36,9 @@ export default styles = StyleSheet.create({
     marginLeft: 5,
   },
   listContent: {
+    flex:1,
     marginTop: 15,
+    marginBottom:115
   },
 
   buttonContent: {

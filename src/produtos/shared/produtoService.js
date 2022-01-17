@@ -7,7 +7,6 @@ export async function adicionar(produto) {
         produto.id = new Date().toString();
         let produtos = await listar();
         produtos.push(produto);
-        console.log(produtos);
         await salvarNoLocalStorage(produtos);
         return produto;
     } catch (error) {
@@ -18,8 +17,7 @@ export async function adicionar(produto) {
 export async function listar() {
     try {
         
-        let produtos = JSON.parse(await AsyncStorage.getItem(ENTIDADE));
-        console.log(produtos);
+        let produtos = JSON.parse(await AsyncStorage.getItem(ENTIDADE));        
         if (produtos == null) {
             return [];
         }

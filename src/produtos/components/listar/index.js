@@ -13,15 +13,18 @@ import { listar, adicionar, remover } from "../../shared";
 
 export default function ListarProdutoComponent() {
   // Hooks - useState
-  const [nomeProduto, setNomeProduto] = useState("");
+  const [nomeProduto, setNomeProduto] = useState("teste");
   const [produtos, setProdutos] = useState([]);
 
   //SPREAD JS
   async function handleAdicionarProduto() {
     try {
+      if(nomeProduto.trim().length === 0){
+        throw new Error("Digite o nome do Produto.");
+      }
       await adicionar({ nome: nomeProduto, id: null });      
       await load();
-      setNomeProduto("");
+      // setNomeProduto("");
     } catch (error) {
       alert(error.toString());
     }
@@ -95,4 +98,3 @@ function Produto({ data, onPress }) {
     </View>
   );
 }
-
