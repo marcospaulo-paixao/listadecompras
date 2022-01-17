@@ -13,7 +13,7 @@ import { listar, adicionar, remover } from "../../shared";
 
 export default function ListarProdutoComponent() {
   // Hooks - useState
-  const [nomeProduto, setNomeProduto] = useState("teste");
+  const [nomeProduto, setNomeProduto] = useState("");
   const [produtos, setProdutos] = useState([]);
 
   //SPREAD JS
@@ -24,7 +24,7 @@ export default function ListarProdutoComponent() {
       }
       await adicionar({ nome: nomeProduto, id: null });      
       await load();
-      // setNomeProduto("");
+      setNomeProduto("");
     } catch (error) {
       alert(error.toString());
     }
