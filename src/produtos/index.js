@@ -1,1 +1,0 @@
-export { ListarProdutoComponent } from "./components";

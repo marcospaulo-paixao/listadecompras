@@ -1,12 +1,15 @@
 import React from "react";
 
-import {ListarProdutoComponent} from "./src"
+import { NavigationContainer } from '@react-navigation/native';
+import { AppProvider, Routes } from "./src";
 
 export default function App() {
 
   return (
-    <>
-      <ListarProdutoComponent />
-    </>
+    <NavigationContainer >
+      <AppProvider>
+      <Routes />
+      </AppProvider>
+    </NavigationContainer>
   );
 }

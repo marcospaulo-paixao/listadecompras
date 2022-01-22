@@ -16,8 +16,8 @@ export async function adicionar(produto) {
 
 export async function listar() {
     try {
-        
-        let produtos = JSON.parse(await AsyncStorage.getItem(ENTIDADE));        
+
+        let produtos = JSON.parse(await AsyncStorage.getItem(ENTIDADE));
         if (produtos == null) {
             return [];
         }
@@ -27,11 +27,12 @@ export async function listar() {
     }
 }
 
+
 export async function atualizar(produto) {
     try {
         let produtos = await listar();
         produtos.forEach((objeto, index, lista) => {
-            if (tarefa.id === objeto.id) {
+            if (produto.id === objeto.id) {
                 lista[index] = produto;
             }
         });
@@ -51,7 +52,13 @@ export async function remover(id) {
         throw error
     }
 }
-
+export async function removerTodos() {
+    try {
+        await salvarNoLocalStorage([]);
+    } catch (error) {
+        throw error
+    }
+}
 async function salvarNoLocalStorage(produtos) {
     try {
         await AsyncStorage.setItem(ENTIDADE, JSON.stringify(produtos));
