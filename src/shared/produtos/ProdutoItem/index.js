@@ -63,11 +63,10 @@ export default function ProdutoItem({ data, load }) {
           <View>
             <Text >Quantidade: {data.qtd}</Text>
             <Text >Preço: {data.preco}</Text>
-            <Text ></Text>
             <Text style={{ fontWeight: 'bold' }} >Total: {total.toFixed(2)}</Text>
           </View>
         </View>
-        <View style={{ flexDirection: 'row', marginRight: -20, marginTop: -15 }}>
+        <View style={{ flexDirection: 'row', marginRight: -20, marginTop: -15}}>
           <TouchableOpacity style={{ marginHorizontal: 12, marginTop: 15 }} onPress={() => alertConfirm()}>
             <IconFontAwesome name="trash" size={25} color="red" />
           </TouchableOpacity>

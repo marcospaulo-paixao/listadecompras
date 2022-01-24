@@ -13,7 +13,7 @@ export default function ListarProdutoComponent({ produtos, load }) {
           data={produtos}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <ProdutoItem data={item} load={load} />
+           <ProdutoItem data={item} load={load} />
           )}
         />
       </View>

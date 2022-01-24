@@ -59,13 +59,13 @@ export default styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000000",
     borderRadius: 10,
-    height: 125,
     margin: 10,
     padding: 15,
+    height: 115,
     borderColor: '#24C0EB',
   },
   produtoHeader: {
-    flex:1,
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     height: 60

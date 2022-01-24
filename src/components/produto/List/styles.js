@@ -47,7 +47,6 @@ export default styles = StyleSheet.create({
   },
   listContent: {
     flex: 1,
-    marginTop: 15,
     // marginBottom: 100
   },
 

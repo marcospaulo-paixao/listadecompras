@@ -1,21 +1,21 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 
-const AuthContext = createContext({});
+const AppContext = createContext({});
 
 function AppProvider({children }) {
     const [loading, setLoading] = useState(false);
 
     return (
-        <AuthContext.Provider
+        <AppContext.Provider
         value={{  loading, setLoading  }}
       >
         {children}
-      </AuthContext.Provider>
+      </AppContext.Provider>
     );
 }
 
 function useAuth() {
-  const context = useContext(AuthContext);
+  const context = useContext(AppContext);
 
   if (!context) {
     throw new Error("useAuth deve ser usado com o AuthProvider.");

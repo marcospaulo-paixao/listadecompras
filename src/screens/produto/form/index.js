@@ -16,7 +16,6 @@ export default function FormProdutoScreens({ route }) {
         }
     });
 
-    { route.params?.twitter }
 
     return (
         <View style={styles.container}>
