@@ -5,17 +5,17 @@ import {
   ProdutoItem,
 } from "../../../shared";
 
-export default function ListarProdutoComponent({ produtos, load }) {
+export default function ListarProdutoComponent({ produtos, setLoading }) {
 
-    return (
-      <View style={styles.listContent}>
-        <FlatList
-          data={produtos}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-           <ProdutoItem data={item} load={load} />
-          )}
-        />
-      </View>
-    );
-  }
+  return (
+    <View style={styles.listContent}>
+      <FlatList
+        data={produtos}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <ProdutoItem data={item} setLoading={setLoading} />
+        )}
+      />
+    </View>
+  );
+}

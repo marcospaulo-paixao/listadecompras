@@ -65,7 +65,7 @@ export default styles = StyleSheet.create({
     borderColor: '#24C0EB',
   },
   produtoHeader: {
-    flex:1,
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     height: 60
@@ -82,7 +82,7 @@ export default styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     width: 300,
-    height:60,
+    height: 60,
     borderColor: '#24C0EB',
     marginBottom: 15,
     padding: 15
@@ -96,7 +96,7 @@ export default styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     width: 361,
-    height:59,
+    height: 59,
     borderColor: '#24C0EB',
     marginBottom: 15
   },

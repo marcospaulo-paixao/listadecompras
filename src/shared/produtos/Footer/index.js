@@ -8,7 +8,7 @@ import { adicionar, removerTodos } from "../produtoService";
 import { useNavigation } from '@react-navigation/native';
 import { Alert } from "react-native";
 
-export default function FooterProduto({ load }) {
+export default function FooterProduto({ setLoading }) {
   const navigation = useNavigation();
 
   const alertConfirm = () =>
@@ -27,8 +27,9 @@ export default function FooterProduto({ load }) {
 
   async function handleRemoverTodos() {
     try {
+      setLoading(true);
       await removerTodos();
-      await load();
+      setLoading(false);
     } catch (error) {
       alert(error.message);
     }

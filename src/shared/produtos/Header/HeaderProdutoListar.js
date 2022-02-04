@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
-  Image
+  Image,
+  TextInput,
+  TouchableOpacity
 } from "react-native";
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 
-export default function HeaderProdutoListar({total}) {
+export default function HeaderProdutoListar({ total,  load, search, setSearch }) {
+  
+  async function handleClear() {
+    try {
+      setSearch("");
+      await load();
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
+ async function handleSearch() {
+    try {
+      await load(search);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
   return (
     <>
       <View>
@@ -23,6 +44,24 @@ export default function HeaderProdutoListar({total}) {
             <Text style={{ fontSize: 30 }}>Total:  {total}</Text>
           </View>
         </View >
+
+
+        <View style={styles.searchSection}>
+          <TouchableOpacity onPress={() => handleClear()}>
+            <IconMaterial style={styles.searchIcon} name="clear" size={20} color="#24C0EB" />
+          </TouchableOpacity>
+          <TextInput
+            style={styles.input}
+            placeholder=""
+            value={search}
+            onChangeText={setSearch}
+            underlineColorAndroid="transparent"
+          />
+          <TouchableOpacity onPress={() => handleSearch()}>
+            <IconFontAwesome style={styles.searchIcon} name="search" size={20} color="#24C0EB" />
+          </TouchableOpacity>
+        </View>
+
         <View style={{ overflow: 'hidden', paddingBottom: 5 }}>
           <View
             style={{
@@ -40,16 +79,3 @@ export default function HeaderProdutoListar({total}) {
     </>
   )
 }
-
-/* <View style={styles.searchSection}>
-  <IconFontAwesome style={styles.searchIcon} name="search" size={20} color="#24C0EB" />
-  <TextInput
-    style={styles.input}
-    placeholder=""
-    value={search}
-    onChangeText={setSearch}
-    // onChangeText={(searchString) => { this.setState({ searchString }) }}
-    underlineColorAndroid="transparent"
-  />
-  <IconMaterial style={styles.searchIcon} name="clear" size={20} color="#24C0EB" />
-</View> */

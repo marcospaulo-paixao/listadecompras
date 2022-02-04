@@ -4,11 +4,10 @@ import { adicionarProdutoBo, MyActivityIndicator } from '../../../shared';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-export default function NomeProdutoForm() {
+export default function NomeProdutoForm({loading, setLoading}) {
     const [nomeProduto, setNomeProduto] = useState("");
     const [messageError, setMessageError] = useState("");
     const navigation = useNavigation();
-    const [loading, setLoading] = useState(false);
 
     async function handleAdicionar() {
         try {
@@ -67,7 +66,6 @@ export default function NomeProdutoForm() {
                     </View> :
                     <MyActivityIndicator />
             }
-
         </View>
     );
 }

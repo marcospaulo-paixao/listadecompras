@@ -13,7 +13,7 @@ import { remover, atualizar } from "../produtoService";
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function ProdutoItem({ data, load }) {
+export default function ProdutoItem({ data, setLoading }) {
   const total = data.qtd * data.preco;
   const navigation = useNavigation();
 
@@ -34,8 +34,9 @@ export default function ProdutoItem({ data, load }) {
 
   async function handleRemoverProduto() {
     try {
+      setLoading(true);
       await remover(data.id);
-      await load();
+      setLoading(false);
     } catch (error) {
       alert(error.message);
     }

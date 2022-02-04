@@ -10,7 +10,7 @@ export async function adicionar(produto) {
         await salvarNoLocalStorage(produtos);
         return produto;
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 
@@ -23,10 +23,23 @@ export async function listar() {
         }
         return produtos;
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 
+export async function getTotalProdutos() {
+    try {
+        let produtos = await listar();
+        let total = 0;
+        produtos.forEach((object) => {
+            total += (object.qtd * object.preco)
+        });
+        return total.toFixed(2);
+    } catch (error) {
+        throw error;
+    }
+
+}
 
 export async function atualizar(produto) {
     try {
@@ -39,7 +52,37 @@ export async function atualizar(produto) {
         await salvarNoLocalStorage(produtos);
         return produto;
     } catch (error) {
-        throw error
+        throw error;
+    }
+}
+
+export async function buscarPorId(id) {
+    try {
+        let produtos = await listar();
+        let produto = produtos.find((objeto) => {
+            return objeto.id == id;
+        });
+        if (produto) {
+            return produto;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function buscarPorNome(nome) {
+    try {
+        let produtos = await listar();
+
+        let retProdutos = []
+        produtos.forEach((objeto) => {
+            if(objeto.nome.toUpperCase().includes(nome.toUpperCase())){
+                retProdutos.push(objeto);
+            }
+        })
+        return retProdutos;
+    } catch (error) {
+        throw error;
     }
 }
 
@@ -49,20 +92,20 @@ export async function remover(id) {
         produtos = produtos.filter(produto => produto.id !== id);
         await salvarNoLocalStorage(produtos);
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 export async function removerTodos() {
     try {
         await salvarNoLocalStorage([]);
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 async function salvarNoLocalStorage(produtos) {
     try {
         await AsyncStorage.setItem(ENTIDADE, JSON.stringify(produtos));
     } catch (error) {
-        throw error
+        throw error;
     }
 }

@@ -9,12 +9,11 @@ import { atualizarProdutoBo, MyActivityIndicator } from "../../../shared";
 import styles from "./styles"
 import { useNavigation } from '@react-navigation/native';
 
-export default function QtdPrecoProdutoForm({ produto }) {
+export default function QtdPrecoProdutoForm({ produto , loading, setLoading }) {
     const [qtdProduto, setQtdProduto] = useState("");
     const [precoProduto, setPrecoProduto] = useState("");
     const [messageError, setMessageError] = useState("");
     const navigation = useNavigation();
-    const [loading, setLoading] = useState(false);
 
     async function atualizarQtdPreco() {
         try {
@@ -26,7 +25,6 @@ export default function QtdPrecoProdutoForm({ produto }) {
             setQtdProduto("");
             setPrecoProduto("");
             setLoading(false);
-
             navigation.goBack();
         } catch (error) {
             setMessageError(error.message);

@@ -1,5 +1,15 @@
-export {default as Routes} from "./routes";
-export * from "./components";
-export * from "./contexts";
-export * from "./screens";
-export * from "./shared";
+import React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { AppProvider } from './contexts';
+import Routes from "./routes";
+
+export default function App() {
+
+    return (
+        <NavigationContainer >
+            <AppProvider>
+                <Routes />
+            </AppProvider>
+        </NavigationContainer>
+    );
+}
