@@ -50,7 +50,9 @@ export default function ProdutoItem({ data, setLoading }) {
         data.check = false;
         data.preco = 0;
         data.qtd = 0;
+        setLoading(true);
         await atualizar(data);
+        setLoading(false);
       }
     } catch (error) {
       alert(error.message)

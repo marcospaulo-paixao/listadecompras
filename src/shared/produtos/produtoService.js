@@ -21,6 +21,18 @@ export async function listar() {
         if (produtos == null) {
             return [];
         }
+
+        produtos.sort(function (a, b) {
+            if (a.nome > b.nome) {
+                return 1;
+            }
+            if (a.nome < b.nome) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+
         return produtos;
     } catch (error) {
         throw error;
@@ -76,7 +88,7 @@ export async function buscarPorNome(nome) {
 
         let retProdutos = []
         produtos.forEach((objeto) => {
-            if(objeto.nome.toUpperCase().includes(nome.toUpperCase())){
+            if (objeto.nome.toUpperCase().includes(nome.toUpperCase())) {
                 retProdutos.push(objeto);
             }
         })
@@ -109,3 +121,4 @@ async function salvarNoLocalStorage(produtos) {
         throw error;
     }
 }
+

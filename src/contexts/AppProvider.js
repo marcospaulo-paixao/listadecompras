@@ -9,6 +9,7 @@ function AppProvider({ children }) {
   const [search, setSearch] = useState("");
   const [init, setInit] = useState(true);
   const [loading, setLoading] = useState(false);
+  const exports = { total, produtos, load, search, setSearch, loading, setLoading };
 
   async function load(nome) {
     try {
@@ -39,7 +40,7 @@ function AppProvider({ children }) {
 
 
   return (
-    <AppContext.Provider value={{ total, produtos, load, search, setSearch, loading, setLoading }} >
+    <AppContext.Provider value={{ ...exports }} >
       {children}
     </AppContext.Provider>
   );
