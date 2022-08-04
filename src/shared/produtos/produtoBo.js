@@ -1,9 +1,12 @@
-import { adicionar, atualizar, remover } from './produtoService';
+import { adicionar, atualizar, buscarPorNome, remover } from './produtoService';
 
 
 export async function adicionarProdutoBo(produto) {
     try {
         validaNome(produto);
+        if((await buscarPorNome(produto.nome))?.length > 0) {
+            throw new Error("Já existe um produto cadastrado com esse nome!");
+        };
         return await adicionar(produto);
     } catch (error) {
         throw error
