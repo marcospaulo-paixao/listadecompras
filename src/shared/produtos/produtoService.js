@@ -68,6 +68,22 @@ export async function atualizar(produto) {
     }
 }
 
+
+export async function removerSelecaoProdutos() {
+    try {
+        let produtos = await listar();
+        produtos.forEach((objeto, index, lista) => {
+            objeto.check = false;
+            objeto.preco = 0;
+            objeto.qtd = 0;
+            lista[index] = objeto;
+        });
+        await salvarNoLocalStorage(produtos);
+    } catch (error) {
+        throw error;
+    }
+}
+
 export async function buscarPorId(id) {
     try {
         let produtos = await listar();

@@ -11,12 +11,12 @@ import { ListarProdutoComponent } from "../../../components";
 import { appContext } from '../../../contexts';
 
 export default function ListarProdutoScreen() {
-  const { produtos, total,load, search, setSearch,setLoading } = appContext();
+  const { produtos, total, load, search, setSearch,setLoading } = appContext();
 
   return (
     <View style={styles.container}>
       <StatusBar hidden={false} />
-      <HeaderProdutoListar total={total} search={search} setSearch={setSearch} load={load} />
+      <HeaderProdutoListar total={total} search={search} setSearch={setSearch} load={load} setLoading={setLoading} />
       <ListarProdutoComponent produtos={produtos} setLoading={setLoading} />
       <FooterProduto setLoading={setLoading} />
     </View>

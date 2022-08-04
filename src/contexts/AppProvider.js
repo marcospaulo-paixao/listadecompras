@@ -1,5 +1,9 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { buscarPorNome, getTotalProdutos, listar } from "../shared";
+import {
+  buscarPorNome,
+  getTotalProdutos,
+  listar
+} from "../shared";
 
 const AppContext = createContext({});
 
@@ -9,7 +13,16 @@ function AppProvider({ children }) {
   const [search, setSearch] = useState("");
   const [init, setInit] = useState(true);
   const [loading, setLoading] = useState(false);
-  const exports = { total, produtos, load, search, setSearch, loading, setLoading };
+  
+  const exports = {
+    total,
+    produtos,
+    load,
+    search,
+    setSearch,
+    loading,
+    setLoading,
+  };
 
   async function load(nome) {
     try {
@@ -30,7 +43,7 @@ function AppProvider({ children }) {
         await load(search);
         setInit(false);
       }
-      if(loading){
+      if (loading) {
         await load(search);
       }
     } catch (error) {
@@ -38,11 +51,8 @@ function AppProvider({ children }) {
     }
   });
 
-
   return (
-    <AppContext.Provider value={{ ...exports }} >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ ...exports }}>{children}</AppContext.Provider>
   );
 }
 
