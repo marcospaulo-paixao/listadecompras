@@ -1,14 +1,17 @@
 {
+  "name": "listadecompras",
+  "displayName": "MeuAplicativo",
   "expo": {
-    "name": "listadecompras",
+    "name": "Lista de Compras v1",
+    "icon": "./assets/horizontal_on_white_by_logaster.png",
     "slug": "listadecompras",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
     "android": {
-      "package": "br.com.listadecompras"
+      "package": "dev.br.mpp.listadecompras",
+      "versionCode": 1
     }
-  },
-  "name": "listadecompras"
+  }
 }
